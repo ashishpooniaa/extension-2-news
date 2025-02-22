@@ -5,10 +5,19 @@
   "description": "Shows similar articles for the current page",
   "permissions": [
     "activeTab",
-    "tabs"
+    "tabs",
+    "scripting"
   ],
   "host_permissions": [
-    "http://localhost:3000/*"
+    "http://localhost:3000/*",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
   ],
   "action": {
     "default_popup": "popup.html",

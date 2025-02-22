@@ -1,15 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Similar Articles</title>
-  <link rel="stylesheet" href="popup.css">
+  <style>
+    .container {
+      display: flex;
+      gap: 20px;
+      min-width: 600px;
+    }
+    .column {
+      flex: 1;
+    }
+    .loading {
+      text-align: center;
+    }
+    .error {
+      color: red;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      cursor: pointer;
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      transition: all 0.2s ease;
+    }
+    li:hover {
+      background-color: #f0f0f0;
+    }
+    .article-image {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .article-content {
+      flex: 1;
+    }
+    .article-title {
+      margin: 0 0 4px 0;
+      font-size: 14px;
+      color: #333;
+    }
+    small {
+      font-size: 0.8em;
+      color: #666;
+      display: block;
+      margin-top: 4px;
+    }
+    .no-image {
+      background-color: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6c757d;
+      font-size: 12px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h2>Similar Articles</h2>
-    <div id="loading" class="loading">Loading...</div>
-    <ul id="articlesList" class="articles-list"></ul>
-  </div>
+    <div class="column">
+      <h3>Similar Articles</h3>
+      <div id="articlesLoading" class="loading">Loading...</div>
+      <ul id="articlesList"></ul>
+    </div>
+    <!-- <div class="column">
+      <h3>Similar Stories</h3>
+      <div id="storiesLoading" class="loading">Loading...</div>
+      <ul id="storiesList"></ul>
+    </div>
+  </div> -->
   <script src="popup.js"></script>
 </body>
 </html> 
